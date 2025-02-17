@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
     }).then((result) => {
         if (result.isConfirmed) {
             document.querySelector('.song').play();
-            let song = document.getElementById("song");
+            let song = document.querySelector("song");
             song.play();
             animationTimeline();
         } else {
