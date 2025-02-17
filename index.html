@@ -21,11 +21,41 @@
 
 <body>
 
- <audio class="song" loop autoplay>
-        <source src="./music/hbd.mpeg">
-        </source>
-        Your browser isn't invited for super fun audio time.
-    </audio>
+<audio id="song" src="./music/hbd.mpeg"></audio>
+    <button id="playMusic" style="display: none;">Play Music</button> <!-- Hidden Button -->
+
+    <script>
+        window.addEventListener('load', () => {
+            Swal.fire({
+                title: 'Ready, Aya?',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Yes',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let song = document.getElementById("song");
+
+                    // Attempt to play the music
+                    song.play().then(() => {
+                        console.log("Music started playing.");
+                    }).catch((error) => {
+                        console.warn("Autoplay blocked, requiring user interaction:", error);
+                        document.getElementById("playMusic").style.display = "block"; // Show button if blocked
+                    });
+
+                    animationTimeline();
+                } else {
+                    animationTimeline();
+                }
+            });
+        });
+
+        // Fallback: Button to manually play if autoplay fails
+        document.getElementById("playMusic").addEventListener("click", function() {
+            let song = document.getElementById("song");
+            song.play();
+        });
+    </script>
 
 
 
