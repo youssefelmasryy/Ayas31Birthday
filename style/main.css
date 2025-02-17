@@ -207,8 +207,6 @@ body {
   font-size: 3em;
   margin: 0;
   text-transform: uppercase;
-  direction: rtl;
-  unicode-bidi: bidi-override;
 }
 
 .wish h5 {
