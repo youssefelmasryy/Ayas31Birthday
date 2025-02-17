@@ -1,18 +1,15 @@
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
     Swal.fire({
-        title: 'Ready, Aya?',
+        title: 'Ready my love?',
         icon: 'warning',
-        showCancelButton: false,
+        showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes',
-        cancelButtonText: 'yes bardo',
     }).then((result) => {
         if (result.isConfirmed) {
             document.querySelector('.song').play();
-            let song = document.querySelector("song");
-            song.play();
             animationTimeline();
         } else {
             animationTimeline();
