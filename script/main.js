@@ -1,22 +1,31 @@
 // trigger to play music in the background with sweetalert
+// Ensure SweetAlert fires when the page loads
 window.addEventListener('load', () => {
     Swal.fire({
-        title: 'Do you want to play music in the background?',
+        title: 'Ready, Aya?',
         icon: 'warning',
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
         confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
     }).then((result) => {
         if (result.isConfirmed) {
-            document.querySelector('.song').play();
+            let song = document.querySelector('.song');
+
+            // Ensure the audio is playable after a user interaction
+            song.play().then(() => {
+                console.log("Music started playing.");
+            }).catch((error) => {
+                console.log("Autoplay blocked, requiring user interaction:", error);
+                document.addEventListener("click", () => song.play(), { once: true });
+            });
+
             animationTimeline();
         } else {
             animationTimeline();
         }
     });
 });
+
 
 
 // animation timeline
