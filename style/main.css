@@ -58,16 +58,20 @@ body {
   margin: 0 auto;
   padding: 10px;
   position: relative;
-  width: 600px;
-  word-break: normal; /* Prevents character breaks */
-  white-space: normal; /* Allows normal text flow */
-  overflow-wrap: break-word; /* Ensures long words don't overflow */
-  
+  width: 100%;
+  max-width: 600px;
+  word-break: normal; /* Prevents breaking characters */
+  white-space: normal; /* Ensures normal text flow */
+  overflow-wrap: break-word; /* Prevents long words from overflowing */
+  line-break: anywhere; /* Fixes text breaking issue */
+  text-align: right; /* Aligns text properly for Arabic */
+  direction: rtl; /* Ensures proper Arabic flow */
 }
 
 .text-box p {
   margin: 0;
-  text-align: left;
+  display: block; /* Prevents words from breaking randomly */
+  width: 100%;
 }
 
 .text-box span {
@@ -77,11 +81,30 @@ body {
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 3px;
-  bottom: -50px;
   color: #fff;
   padding: .5rem 1rem;
   position: absolute;
+  bottom: -50px;
   right: 5px;
+  white-space: nowrap;
+  max-width: 90%;
+  text-align: center;
+  font-family: inherit;
+}
+
+@media (max-width: 768px) {
+  .four .text-box {
+    max-width: 90%;
+  }
+
+  .text-box p {
+    font-size: 16px; /* Ensures text readability on smaller screens */
+  }
+
+  .text-box .fake-btn {
+    bottom: -40px;
+    font-size: 14px;
+  }
 }
 
 .five p {
