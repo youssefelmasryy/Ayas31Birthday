@@ -3,7 +3,7 @@ html {
   height: 100dvh; /* Dynamic viewport height (fixes iOS Safari issue) */
   margin: 0;
   padding: 0;
-  overflow: auto; /* Prevents scrolling if not needed */
+  overflow: hidden; /* Prevents scrolling if not needed */
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   margin: 0;
   height: 100dvh; /* Dynamic viewport height (fixes iOS Safari issue) */
   padding: 0;
-  overflow: auto; /* Prevents scrolling if not needed */
+  overflow: hidden; /* Prevents scrolling if not needed */
 }
 
 .song {
@@ -25,12 +25,11 @@ body {
   text-align: center;
   visibility: hidden;
   width: 100vw;
-  height: auto; /* Ensures the container fills the screen */
+  height: 100%; /* Ensures the container fills the screen */
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f4f4f4;
-  min-height: 100vh;
 }
 
 .container > div {
@@ -59,20 +58,12 @@ body {
   margin: 0 auto;
   padding: 10px;
   position: relative;
-  width: 100%;
-  max-width: 600px;
-  word-break: normal; /* Allows natural word breaking */
-  overflow-wrap: break-word; /* Ensures long words wrap correctly */
-  white-space: normal; /* Allows multiline text */
-  direction: rtl; /* Maintains Arabic reading order */
-  text-align: right;
+  width: 600px;
 }
 
 .text-box p {
   margin: 0;
-  display: block; /* Ensures each line renders correctly */
-  width: 100%;
-  font-size: 18px;
+  text-align: left;
 }
 
 .text-box span {
@@ -82,33 +73,12 @@ body {
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 3px;
+  bottom: -50px;
   color: #fff;
   padding: .5rem 1rem;
   position: absolute;
-  bottom: -50px;
   right: 5px;
-  white-space: nowrap;
-  max-width: 90%;
-  text-align: center;
-  font-family: inherit;
 }
-
-@media (max-width: 768px) {
-  .four .text-box {
-    max-width: 90%;
-  }
-
-  .text-box p {
-    font-size: 16px; /* Ensures proper text size */
-    line-height: 1.8;
-  }
-
-  .text-box .fake-btn {
-    bottom: -40px;
-    font-size: 14px;
-  }
-}
-
 
 .five p {
   font-size: 2rem;
@@ -143,14 +113,10 @@ body {
 }
 
 .six img {
+  display: inline-block;
+  height: 350px;
   max-width: 100%;
-  display: block;
-  margin: 0 auto; /* Centers image */
-}
-
-.text-box br {
-  display: block;
-  content: "";
+  /* height: auto; */
 }
 
 .six .hat {
