@@ -59,6 +59,10 @@ body {
   padding: 10px;
   position: relative;
   width: 600px;
+  word-break: normal; /* Prevents character breaks */
+  white-space: normal; /* Allows normal text flow */
+  overflow-wrap: break-word; /* Ensures long words don't overflow */
+  
 }
 
 .text-box p {
