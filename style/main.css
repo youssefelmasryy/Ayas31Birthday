@@ -3,7 +3,7 @@ html {
   height: 100dvh; /* Dynamic viewport height (fixes iOS Safari issue) */
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevents scrolling if not needed */
+  overflow: auto; /* Prevents scrolling if not needed */
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   margin: 0;
   height: 100dvh; /* Dynamic viewport height (fixes iOS Safari issue) */
   padding: 0;
-  overflow: hidden; /* Prevents scrolling if not needed */
+  overflow: auto; /* Prevents scrolling if not needed */
 }
 
 .song {
@@ -25,11 +25,12 @@ body {
   text-align: center;
   visibility: hidden;
   width: 100vw;
-  height: 100%; /* Ensures the container fills the screen */
+  height: auto; /* Ensures the container fills the screen */
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f4f4f4;
+  min-height: 100vh;
 }
 
 .container > div {
@@ -60,16 +61,11 @@ body {
   position: relative;
   width: 100%;
   max-width: 600px;
-  
-  word-break: keep-all; /* Prevents words from breaking incorrectly */
-  white-space: normal; /* Ensures proper word wrapping */
-  overflow-wrap: anywhere; /* Prevents long words from overflowing */
-  text-align: right; /* Proper Arabic alignment */
-  direction: rtl; /* Ensures proper Arabic flow */
-  
-  font-family: 'Arial', 'Tajawal', sans-serif; /* Use a font that supports Arabic properly */
-  letter-spacing: 0 !important; /* Ensures no unwanted letter spacing */
-  line-height: 1.6; /* Improves readability */
+  word-break: normal; /* Allows natural word breaking */
+  overflow-wrap: break-word; /* Ensures long words wrap correctly */
+  white-space: normal; /* Allows multiline text */
+  direction: rtl; /* Maintains Arabic reading order */
+  text-align: right;
 }
 
 .text-box p {
@@ -147,10 +143,15 @@ body {
 }
 
 .six img {
-  display: inline-block;
-  height: 350px;
   max-width: 100%;
-  /* height: auto; */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centers image */
+}
+
+.text-box br {
+  display: block;
+  content: "";
 }
 
 .six .hat {
