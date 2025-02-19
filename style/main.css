@@ -60,18 +60,23 @@ body {
   position: relative;
   width: 100%;
   max-width: 600px;
-  word-break: normal; /* Prevents breaking characters */
-  white-space: normal; /* Ensures normal text flow */
-  overflow-wrap: break-word; /* Prevents long words from overflowing */
-  line-break: anywhere; /* Fixes text breaking issue */
-  text-align: right; /* Aligns text properly for Arabic */
+  
+  word-break: keep-all; /* Prevents words from breaking incorrectly */
+  white-space: normal; /* Ensures proper word wrapping */
+  overflow-wrap: anywhere; /* Prevents long words from overflowing */
+  text-align: right; /* Proper Arabic alignment */
   direction: rtl; /* Ensures proper Arabic flow */
+  
+  font-family: 'Arial', 'Tajawal', sans-serif; /* Use a font that supports Arabic properly */
+  letter-spacing: 0 !important; /* Ensures no unwanted letter spacing */
+  line-height: 1.6; /* Improves readability */
 }
 
 .text-box p {
   margin: 0;
-  display: block; /* Prevents words from breaking randomly */
+  display: block; /* Ensures each line renders correctly */
   width: 100%;
+  font-size: 18px;
 }
 
 .text-box span {
@@ -98,7 +103,8 @@ body {
   }
 
   .text-box p {
-    font-size: 16px; /* Ensures text readability on smaller screens */
+    font-size: 16px; /* Ensures proper text size */
+    line-height: 1.8;
   }
 
   .text-box .fake-btn {
@@ -106,6 +112,7 @@ body {
     font-size: 14px;
   }
 }
+
 
 .five p {
   font-size: 2rem;
