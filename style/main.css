@@ -70,11 +70,12 @@ body {
   visibility: hidden;
 }
 .hbd-chatbox {
-    font-family: 'Tajawal', 'Cairo', 'Amiri', 'Arial', sans-serif;
-    direction: rtl; /* Ensures right-to-left alignment */
-    text-align: right; /* Aligns text properly */
-    word-spacing: normal; /* Ensures proper letter connection */
-    line-height: 1.5; /* Improves readability */
+  font-family: 'Tajawal', 'Cairo', 'Amiri', 'Arial', sans-serif;
+  direction: rtl; /* Ensures right-to-left alignment */
+  text-align: right; /* Aligns text properly */
+  word-spacing: normal; /* Ensures proper letter connection */
+  line-height: 1.5; /* Improves readability */
+  font-feature-settings: "liga" 1, "calt" 1; /* Enables proper Arabic text rendering */
 }
 
 
